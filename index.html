@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Watch a beautiful animated Indian National Flag (Tiranga). Download HD Indian Flag images and videos, explore the Ashoka Chakra, Flag Animation of India, and celebrate India's pride." />
+  <meta name="keywords" content="Indian Flag, Tiranga, Bharat Flag, Indian National Flag, Ashoka Chakra, Flag Animation, Independence Day, Republic Day" />
+  <meta name="author" content="Shivam Thaker" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Indian National Flag Live Animation (HD) | Tiranga | Bharat Flag">
+  <meta property="og:description" content="Beautiful animated Tiranga with HD Image & Video Download.">
+  <meta property="og:image" content="https://bharatflag.netlify.app/favicon/android-chrome-512x512.png">
+  <meta property="og:url" content="https://bharatflag.netlify.app">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://bharatflag.netlify.app/">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="Bharat.css">
+  <script src="Bharat.js" defer></script>
+  <title>Indian National Flag Live Animation (HD) | Tiranga | Bharat Flag</title>
+  <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png">
+  <link rel="manifest" href="site.webmanifest">
+  <noscript>
+    <style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;background:#0d0f14;color:#f1f5f9;text-align:center;padding:40px}</style>
+  </noscript>
+</head>
+<body>
+  <noscript>
+    <style>
+      body * { display: none !important; }
+      body::before {
+        content: "JavaScript is required to use this website.";
+        display: block;
+        text-align: center;
+        padding: 40px;
+        color: white;
+        font-size: 1.5rem;
+      }
+    </style>
+  </noscript>
+  <div id="dl-progress" class="dl-progress" aria-hidden="true">
+    <div class="dl-progress-track">
+      <div class="dl-progress-fill"></div>
+    </div>
+    <div class="dl-progress-label" role="status" aria-live="polite"></div>
+  </div>
+  <div class="canvas-wrapper">
+    <p class="tagline1">🇮🇳 Jai Hind &nbsp;✦&nbsp; भारत माता की जय 🇮🇳</p>
+    <p class="creditline" id="creditline">Proudly Made For India/Bharat by Shivam Thaker</p><br>
+    <canvas id="flag" aria-label="Animated Indian National Flag"></canvas>
+    <p class="tagline2">(Note: Long Press (or) Right Click on Flag to Download Live Image / Video.)</p>
+  </div>
+  <div id="menu" role="menu">
+    <div onclick="downloadPNG()" role="menuitem">Download Image</div>
+    <div onclick="downloadVID()" role="menuitem">Download Video</div>
+  </div>
+  <button id="editNameBtn" class="fab-btn" type="button" aria-label="Change credit line name" title="Change credit line name">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M12 20h9"></path>
+      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+    </svg>
+  </button>
+
+  <div id="nameModalOverlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="nameModalTitle">
+      <h2 id="nameModalTitle">Personalize Credit Line</h2>
+      <p class="modal-sub">It will be shown on the page and will be added when you download the image or video.</p>
+      <input type="text" id="nameModalInput" maxlength="60" autocomplete="off" placeholder="e.g. Proud to be Indian... Made by..." />
+      <div class="modal-counter"><span id="nameModalCount">0</span>/60</div>
+      <div class="modal-actions">
+        <button type="button" id="nameModalReset" class="modal-btn modal-btn-ghost">Reset</button>
+        <button type="button" id="nameModalCancel" class="modal-btn modal-btn-ghost">Cancel</button>
+        <button type="button" id="nameModalSave" class="modal-btn modal-btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(() => console.log('SW registered'))
+          .catch(err => console.log('SW error', err));
+      });
+    }
+  </script>
+</body>
+</html>

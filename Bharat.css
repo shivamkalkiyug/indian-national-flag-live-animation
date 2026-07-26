@@ -231,6 +231,19 @@ canvas
   100% { box-shadow: 0 4px 18px rgba(0,0,0,0.45), 0 0 0 0 rgba(255,153,51,0); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .fab-btn.nudge {
+    animation: none;
+  }
+  .modal-overlay,
+  .modal-card,
+  .fab-btn,
+  .dl-progress,
+  .dl-progress-fill {
+    transition: none !important;
+  }
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0;

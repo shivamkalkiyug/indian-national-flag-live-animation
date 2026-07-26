@@ -11,6 +11,7 @@
   <meta name="application-name" content="Indian National Flag Live Animation">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Bharat Flag">
   <meta name="format-detection" content="telephone=no">
   <meta property="og:title" content="Indian National Flag Live Animation (HD) | Tiranga | Bharat Flag">
   <meta property="og:description" content="Beautiful animated Tiranga with HD Image & Video Download.">
@@ -29,7 +30,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://bharatflag.netlify.app/">
   <link rel="dns-prefetch" href="//bharatflag.netlify.app">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#FF7722">
   <link rel="stylesheet" href="Bharat.css">
   <script src="Bharat.js" defer></script>
   <title>Indian National Flag Live Animation (HD) | Tiranga | Bharat Flag</title>
@@ -39,7 +40,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png">
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="manifest" href="/site.webmanifest">
   <noscript>
     <style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;background:#0d0f14;color:#f1f5f9;text-align:center;padding:40px}</style>
   </noscript>
@@ -71,8 +72,8 @@
     <p class="tagline2">(Note: Long Press (or) Right Click on Flag to Download Live Image / Video.)</p>
   </div>
   <div id="menu" role="menu">
-    <div onclick="downloadPNG()" role="menuitem">Download Image</div>
-    <div onclick="downloadVID()" role="menuitem">Download Video</div>
+    <div onclick="downloadPNG()" role="menuitem" tabindex="0">Download Image</div>
+    <div onclick="downloadVID()" role="menuitem" tabindex="0">Download Video</div>
   </div>
   <button id="editNameBtn" class="fab-btn" type="button" aria-label="Change credit line name" title="Change credit line name">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
@@ -104,6 +105,7 @@
           console.error("SW registration failed", err);
         }
       });
+    }
   </script>
 </body>
 </html>

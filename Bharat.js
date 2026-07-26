@@ -727,10 +727,10 @@ if (!safeStorageGet(STORAGE_KEY_FAB_SEEN)) {
 }
 
 const menu = document.getElementById('menu');
+let menuOpen = false;
 
-canvas.addEventListener('contextmenu', (e) => {
-  e.preventDefault();
-
+function openMenuAt(pageX, pageY)
+{
   menu.style.visibility = 'hidden';
   menu.style.display = 'block';
 
@@ -740,16 +740,111 @@ canvas.addEventListener('contextmenu', (e) => {
   const maxX = window.scrollX + window.innerWidth  - menuWidth  - 4;
   const maxY = window.scrollY + window.innerHeight - menuHeight - 4;
 
-  const x = Math.max(4, Math.min(e.pageX, maxX));
-  const y = Math.max(4, Math.min(e.pageY, maxY));
+  const x = Math.max(4, Math.min(pageX, maxX));
+  const y = Math.max(4, Math.min(pageY, maxY));
 
   menu.style.left = x + 'px';
   menu.style.top  = y + 'px';
   menu.style.visibility = 'visible';
+  menuOpen = true;
+}
+
+function closeMenu()
+{
+  if (!menuOpen) return;
+  menu.style.display = 'none';
+  menuOpen = false;
+}
+
+canvas.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  openMenuAt(e.pageX, e.pageY);
 });
 
 document.addEventListener('click', () => {
-  menu.style.display = 'none';
+  closeMenu();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && menuOpen) closeMenu();
+});
+
+window.addEventListener('scroll', () => { if (menuOpen) closeMenu(); }, { passive: true });
+window.addEventListener('resize', () => { if (menuOpen) closeMenu(); });
+
+// Keyboard activation (Enter/Space) for the menu items, since they're
+// plain divs rather than native <button>/<a> elements.
+menu.querySelectorAll('[role="menuitem"]').forEach((item) => {
+  item.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      item.click();
+    }
+  });
+});
+
+// --- Mobile long-press support -------------------------------------------
+// Right-click / contextmenu is not a reliable way to reach the download
+// menu on touch devices (iOS Safari in particular does not fire
+// `contextmenu` for a long-press on a <canvas>). This adds an explicit
+// long-press gesture so the on-screen instructions actually work on phones
+// and tablets.
+const LONG_PRESS_MS = 500;
+const MOVE_CANCEL_PX = 10;
+let longPressTimer = null;
+let longPressFired  = false;
+let touchStartX = 0;
+let touchStartY = 0;
+
+function clearLongPressTimer()
+{
+  if (longPressTimer !== null) {
+    clearTimeout(longPressTimer);
+    longPressTimer = null;
+  }
+}
+
+canvas.addEventListener('touchstart', (e) => {
+  if (e.touches.length !== 1) { clearLongPressTimer(); return; }
+
+  const touch = e.touches[0];
+  touchStartX = touch.pageX;
+  touchStartY = touch.pageY;
+  longPressFired = false;
+
+  clearLongPressTimer();
+  longPressTimer = setTimeout(() => {
+    longPressFired = true;
+    if (navigator.vibrate) { try { navigator.vibrate(15); } catch (err) {} }
+    openMenuAt(touchStartX, touchStartY);
+  }, LONG_PRESS_MS);
+}, { passive: true });
+
+canvas.addEventListener('touchmove', (e) => {
+  if (!longPressTimer && !longPressFired) return;
+  const touch = e.touches[0];
+  if (!touch) return;
+  const dx = touch.pageX - touchStartX;
+  const dy = touch.pageY - touchStartY;
+  if (Math.hypot(dx, dy) > MOVE_CANCEL_PX) {
+    clearLongPressTimer();
+  }
+}, { passive: true });
+
+canvas.addEventListener('touchend', (e) => {
+  clearLongPressTimer();
+  if (longPressFired) {
+    // Suppress the synthetic mouse "click" event that follows this
+    // touch, so the document click-to-close handler doesn't immediately
+    // dismiss the menu we just opened.
+    e.preventDefault();
+    longPressFired = false;
+  }
+});
+
+canvas.addEventListener('touchcancel', () => {
+  clearLongPressTimer();
+  longPressFired = false;
 });
 
 const progressEl    = document.getElementById('dl-progress');

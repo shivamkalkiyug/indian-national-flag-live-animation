@@ -1,7 +1,7 @@
 # 🇮🇳 Indian National Flag Live Animation
 
 <p align="center">
-  <img src="assets/preview.png" alt="Indian National Flag Live Animation Preview" width="100%">
+  <img src="assets/flag-demo.gif" alt="Indian National Flag Live Animation Preview" width="100%">
 </p>
 
 <p align="center">

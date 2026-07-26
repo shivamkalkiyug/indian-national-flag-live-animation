@@ -84,7 +84,9 @@ Along with the live animation, users can download the current frame as an HD ima
 Indian-National-Flag-Live-Animation
 │
 ├── assets/
-│   ├── preview.png
+│   ├── desktop-preview.png
+│   ├── flag-demo.gif
+│   ├── mobile-preview.jpg
 │   └── social-preview.png
 │
 ├── favicon/

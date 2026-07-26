@@ -50,10 +50,18 @@ Along with the live animation, users can download the current frame as an HD ima
 
 ---
 
-# 🖼 Preview
+# 🖼 Desktop Preview
 
 <p align="center">
-<img src="assets/preview.png" width="100%">
+<img src="assets/desktop-preview.png" width="100%">
+</p>
+
+---
+
+# 🖼 Mobile Preview
+
+<p align="center">
+<img src="assets/mobile-preview.jpg" width="100%">
 </p>
 
 ---

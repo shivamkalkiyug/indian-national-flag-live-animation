@@ -104,7 +104,7 @@ Indian-National-Flag-Live-Animation
 ├── Bharat.css
 ├── Bharat.js
 ├── index.html
-├── site.webmanifest
+├── manifest.json
 ├── sw.js
 ├── sitemap.xml
 ├── LICENSE

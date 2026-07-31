@@ -28,7 +28,7 @@ Along with the live animation, users can download the current frame as an HD ima
 
 - 🇮🇳 Realistic waving Indian National Flag animation
 - 🎨 HTML5 Canvas rendering
-- ⚡ Smooth animation using `requestAnimationFrame()`
+- ⚡ Smooth animation
 - 🛡 Responsive design for desktop and mobile devices
 - 📷 Download HD PNG image
 - 🎥 Download HD animated video

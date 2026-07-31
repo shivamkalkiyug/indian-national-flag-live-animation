@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="Bharat.css">
   <script src="Bharat.js" defer></script>
   <title>Indian National Flag Live Animation (HD) | Tiranga | Bharat Flag</title>
-  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <div id="dl-progress" class="dl-progress" aria-hidden="true">
@@ -47,17 +46,5 @@
       </div>
     </div>
   </div>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener("load", async () => {
-        try {
-          await navigator.serviceWorker.register("/sw.js");
-          console.log("SW registered");
-        } catch (err) {
-          console.error("SW registration failed", err);
-        }
-      });
-    }
-  </script>
 </body>
 </html>

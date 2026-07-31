@@ -10,7 +10,6 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Canvas API](https://img.shields.io/badge/Canvas-API-orange?style=for-the-badge)
-![PWA](https://img.shields.io/badge/PWA-Ready-blue?style=for-the-badge)
 ![Responsive](https://img.shields.io/badge/Responsive-Yes-success?style=for-the-badge)
 
 </p>
@@ -34,12 +33,6 @@ Along with the live animation, users can download the current frame as an HD ima
 - 📷 Download HD PNG image
 - 🎥 Download HD animated video
 - ✍ Customizable credit line for exported media
-- 📱 Progressive Web App (PWA) support
-- 🔍 Search Engine Optimized (SEO)
-- 🌐 Open Graph & Twitter Card support
-- 🗺 Sitemap included
-- 📌 Google Search Console verification ready
-- ⚙ Service Worker support
 - 🚀 Lightweight (No frameworks required)
 
 ---
@@ -66,10 +59,6 @@ Along with the live animation, users can download the current frame as an HD ima
 - CSS3
 - JavaScript (ES6)
 - HTML5 Canvas API
-- Service Worker
-- Web Manifest
-- Netlify
-
 ---
 
 # 📂 Project Structure
@@ -80,23 +69,11 @@ Indian-National-Flag-Live-Animation
 ├── assets/
 │   ├── desktop-preview.png
 │   ├── flag-demo.gif
-│   ├── mobile-preview.jpg
-│   └── social-preview.png
-│
-├── favicon/
-│   ├── favicon.ico
-│   ├── favicon-16x16.png
-│   ├── favicon-32x32.png
-│   ├── android-chrome-192x192.png
-│   ├── android-chrome-512x512.png
-│   └── apple-touch-icon.png
+│   └── mobile-preview.jpg
 │
 ├── Bharat.css
 ├── Bharat.js
 ├── index.html
-├── manifest.json
-├── sw.js
-├── sitemap.xml
 ├── LICENSE
 └── README.md
 ```
@@ -151,34 +128,6 @@ http://localhost:8000
 | Brave | ✅ |
 | Opera | ✅ |
 | Safari | ✅ |
-
----
-
-# 🌐 SEO
-
-This project includes
-
-- Meta Description
-- Keywords
-- Canonical URL
-- Open Graph Metadata
-- Twitter Card
-- Sitemap
-- Robots support
-- Google Search Console verification
-
----
-
-# 📦 PWA Support
-
-This project contains
-
-- Web Manifest
-- Service Worker
-- Android Icons
-- Apple Touch Icons
-
-The website can be installed on supported browsers as a Progressive Web App.
 
 ---
 

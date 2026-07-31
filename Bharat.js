@@ -548,52 +548,6 @@ window.addEventListener('orientationchange', onResize);
 setupCanvas();
 startLoop();
 
-document.addEventListener('contextmenu', function (e)
-{
-  e.preventDefault();
-});
-
-document.addEventListener('keydown', function (e)
-{
-  const blocked = [
-    { ctrlKey: true, key: 'u' },
-    { ctrlKey: true, key: 's' },
-    { ctrlKey: true, key: 'c' },
-    { ctrlKey: true, key: 'x' },
-    { ctrlKey: true, key: 'a' },
-    { ctrlKey: true, key: 'p' },
-    { key: 'F12' },
-    { ctrlKey: true, shiftKey: true, key: 'I' },
-    { ctrlKey: true, shiftKey: true, key: 'J' },
-    { ctrlKey: true, shiftKey: true, key: 'C' },
-    { ctrlKey: true, shiftKey: true, key: 'S' }
-  ];
-
-  const isBlocked = blocked.some(combo =>
-    Object.keys(combo).every(k => combo[k] === e[k])
-  );
-
-  if (isBlocked) e.preventDefault();
-});
-
-document.addEventListener('keyup', function (e)
-{
-  if (e.key === 'PrintScreen' && navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText('Screenshots are disabled.').catch(() => {
-    });
-  }
-});
-
-document.addEventListener('selectstart', function (e)
-{
-  e.preventDefault();
-});
-
-document.addEventListener('dragstart', function (e)
-{
-  e.preventDefault();
-});
-
 const DEFAULT_CREDIT_TEXT = 'Proudly Made For India/Bharat by Shivam Thaker';
 const STORAGE_KEY_NAME    = 'bharatFlagCreditName';
 const STORAGE_KEY_FAB_SEEN = 'bharatFlagFabSeen';
@@ -772,8 +726,6 @@ document.addEventListener('keydown', (e) => {
 window.addEventListener('scroll', () => { if (menuOpen) closeMenu(); }, { passive: true });
 window.addEventListener('resize', () => { if (menuOpen) closeMenu(); });
 
-// Keyboard activation (Enter/Space) for the menu items, since they're
-// plain divs rather than native <button>/<a> elements.
 menu.querySelectorAll('[role="menuitem"]').forEach((item) => {
   item.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -783,12 +735,6 @@ menu.querySelectorAll('[role="menuitem"]').forEach((item) => {
   });
 });
 
-// --- Mobile long-press support -------------------------------------------
-// Right-click / contextmenu is not a reliable way to reach the download
-// menu on touch devices (iOS Safari in particular does not fire
-// `contextmenu` for a long-press on a <canvas>). This adds an explicit
-// long-press gesture so the on-screen instructions actually work on phones
-// and tablets.
 const LONG_PRESS_MS = 500;
 const MOVE_CANCEL_PX = 10;
 let longPressTimer = null;
@@ -834,9 +780,6 @@ canvas.addEventListener('touchmove', (e) => {
 canvas.addEventListener('touchend', (e) => {
   clearLongPressTimer();
   if (longPressFired) {
-    // Suppress the synthetic mouse "click" event that follows this
-    // touch, so the document click-to-close handler doesn't immediately
-    // dismiss the menu we just opened.
     e.preventDefault();
     longPressFired = false;
   }

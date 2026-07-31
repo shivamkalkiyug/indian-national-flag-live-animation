@@ -17,16 +17,6 @@
 
 ---
 
-## 🌐 Live Demo
-
-<p align="center">
-  <a href="https://bharatflag.netlify.app">
-    <img src="https://img.shields.io/badge/🇮🇳%20Live%20Demo-Visit%20Website-FF9933?style=for-the-badge" alt="Live Demo">
-  </a>
-</p>
-
----
-
 # 📖 About
 
 **Indian National Flag Live Animation** is a responsive HTML5 Canvas web application that renders a waving Indian National Flag with a dynamic Ashoka Chakra animation. The project is built using pure HTML, CSS and JavaScript without external frameworks.
@@ -220,8 +210,6 @@ It helps others discover the project.
 Made with ❤️ for India 🇮🇳
 
 GitHub: https://github.com/shivamkalkiyug
-
-Website: https://bharatflag.netlify.app
 
 ---
 
